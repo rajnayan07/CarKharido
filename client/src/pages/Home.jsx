@@ -50,15 +50,15 @@ export default function Home() {
       {/* top */}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-        Find Better Places <span className='text-slate-500'>to Live,</span>
+        Your dream Car just one <span className='text-slate-500'>click away!</span>
           <br />
           Work and Wonder...
         </h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
-          Home Vista is the best place to find your next perfect place to
+          Car Kharido is the best place to Know everything about the latest cars
           live.
           <br />
-          We have a wide range of properties for you to choose from.
+          We have a wide range of car collection for you to choose from.
         </div>
         <Link
           to={'/search'}
