@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListingItem from '../components/ListingItem';
 
@@ -69,7 +69,7 @@ export default function Search() {
   const handleChange = (e) => {
     if (
       e.target.id === 'all' ||
-      e.target.id === 'rent' ||
+      e.target.id === 'buy' ||
       e.target.id === 'sale'
     ) {
       setSidebardata({ ...sidebardata, type: e.target.id });
@@ -79,11 +79,12 @@ export default function Search() {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
 
-    if (
-      e.target.id === 'parking' ||
-      e.target.id === 'furnished' ||
-      e.target.id === 'offer'
-    ) {
+    // if (
+    //   e.target.id === 'parking' ||
+    //   e.target.id === 'furnished' ||
+    //   e.target.id === 'offer'
+    // ) 
+    {
       setSidebardata({
         ...sidebardata,
         [e.target.id]:
@@ -154,17 +155,17 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.type === 'all'}
               />
-              <span>Rent & Sale</span>
+              <span>Buy & Sale</span>
             </div>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='rent'
+                id='buy'
                 className='w-5'
                 onChange={handleChange}
-                checked={sidebardata.type === 'rent'}
+                checked={sidebardata.type === 'buy'}
               />
-              <span>Rent</span>
+              <span>Buy</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -189,7 +190,7 @@ export default function Search() {
           </div>
           <div className='flex gap-2 flex-wrap items-center'>
             <label className='font-semibold'>Amenities:</label>
-            <div className='flex gap-2'>
+            {/* <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='parking'
@@ -198,8 +199,8 @@ export default function Search() {
                 checked={sidebardata.parking}
               />
               <span>Parking</span>
-            </div>
-            <div className='flex gap-2'>
+            </div> */}
+            {/* <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='furnished'
@@ -208,7 +209,7 @@ export default function Search() {
                 checked={sidebardata.furnished}
               />
               <span>Furnished</span>
-            </div>
+            </div> */}
           </div>
           <div className='flex items-center gap-2'>
             <label className='font-semibold'>Sort:</label>
