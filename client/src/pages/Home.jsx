@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -25,7 +25,7 @@ export default function Home() {
     };
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=rent&limit=4');
+        const res = await fetch('/api/listing/get?type=buy&limit=4');
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();
@@ -50,15 +50,15 @@ export default function Home() {
       {/* top */}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-        Your dream Car just one <span className='text-slate-500'>click away!</span>
+        Your dream Car just <span className='text-slate-500'>one click away!</span>
           <br />
           Work and Wonder...
         </h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
-          Car Kharido is the best place to Know everything about the latest cars
+          Home Vista is the best place to find your next perfect place to
           live.
           <br />
-          We have a wide range of car collection for you to choose from.
+          We have a wide range of properties for you to choose from.
         </div>
         <Link
           to={'/search'}
@@ -106,7 +106,7 @@ export default function Home() {
           <div className=''>
             <div className='my-3'>
               <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=buy'}>Show more places for rent</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {rentListings.map((listing) => (
