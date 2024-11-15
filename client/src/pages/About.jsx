@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
   return (
     <div className='py-20 px-4 max-w-6xl mx-auto'>
-      <h1 className='text-3xl font-bold mb-4 text-slate-800'>About Home Vista</h1>
+      <h1 className='text-3xl font-bold mb-4 text-slate-800'>About CarKharido </h1>
       <p className='mb-4 text-slate-700'>About CarKharido
 CarKharido.com is India's leading car search venture that helps users buy cars that are right for them. Its website and app carry rich automotive content such as expert reviews, detailed specs and prices, comparisons as well as videos and pictures of all car brands and models available in India. The company has tie-ups with many auto manufacturers, 
         more than 4000 car dealers and numerous financial institutions to facilitate the purchase of vehicles. </p>
