@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+ import { useEffect, useState } from 'react';
 import {
   getDownloadURL,
   getStorage,
@@ -20,13 +20,11 @@ export default function CreateListing() {
     description: '',
     address: '',
     type: 'rent',
-    bedrooms: 1,
-    bathrooms: 1,
+    
     regularPrice: 50,
     discountPrice: 0,
     offer: false,
-    parking: false,
-    furnished: false,
+    
   });
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -49,7 +47,7 @@ export default function CreateListing() {
   }, []);
 
   const handleImageSubmit = (e) => {
-    if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
+    if (files.length > 0 && files.length + formData.imageUrls.length < 11) {
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
@@ -71,7 +69,7 @@ export default function CreateListing() {
           setUploading(false);
         });
     } else {
-      setImageUploadError('You can only upload 6 images per listing');
+      setImageUploadError('You can only upload 10 images per listing');
       setUploading(false);
     }
   };
@@ -109,18 +107,19 @@ export default function CreateListing() {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === 'sale' || e.target.id === 'rent') {
+    if (e.target.id === 'sale' || e.target.id === 'buy') {
       setFormData({
         ...formData,
         type: e.target.id,
       });
     }
 
-    if (
-      e.target.id === 'parking' ||
-      e.target.id === 'furnished' ||
-      e.target.id === 'offer'
-    ) {
+    // if (
+    //   e.target.id === 'parking' ||
+    //   e.target.id === 'furnished' ||
+    //   e.target.id === 'offer'
+    // ) 
+    {
       setFormData({
         ...formData,
         [e.target.id]: e.target.checked,
@@ -219,14 +218,14 @@ export default function CreateListing() {
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='rent'
+                id='buy'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.type === 'rent'}
+                checked={formData.type === 'buy'}
               />
-              <span>Rent</span>
+              <span>Buy</span>
             </div>
-            <div className='flex gap-2'>
+            {/* <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='parking'
@@ -235,8 +234,8 @@ export default function CreateListing() {
                 checked={formData.parking}
               />
               <span>Parking spot</span>
-            </div>
-            <div className='flex gap-2'>
+            </div> */}
+            {/* <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='furnished'
@@ -245,7 +244,7 @@ export default function CreateListing() {
                 checked={formData.furnished}
               />
               <span>Furnished</span>
-            </div>
+            </div> */}
             <div className='flex gap-2'>
               <input
                 type='checkbox'
@@ -258,7 +257,7 @@ export default function CreateListing() {
             </div>
           </div>
           <div className='flex flex-wrap gap-6'>
-            <div className='flex items-center gap-2'>
+            {/* <div className='flex items-center gap-2'>
               <input
                 type='number'
                 id='bedrooms'
@@ -270,8 +269,8 @@ export default function CreateListing() {
                 value={formData.bedrooms}
               />
               <p>Beds</p>
-            </div>
-            <div className='flex items-center gap-2'>
+            </div> */}
+            {/* <div className='flex items-center gap-2'>
               <input
                 type='number'
                 id='bathrooms'
@@ -283,7 +282,7 @@ export default function CreateListing() {
                 value={formData.bathrooms}
               />
               <p>Baths</p>
-            </div>
+            </div> */}
             <div className='flex items-center gap-2'>
               <input
                 type='number'
@@ -328,7 +327,7 @@ export default function CreateListing() {
           <p className='font-semibold'>
             Images:
             <span className='font-normal text-gray-600 ml-2'>
-              The first image will be the cover (max 6)
+              The first image will be the cover (max 10)
             </span>
           </p>
           <div className='flex gap-4'>
