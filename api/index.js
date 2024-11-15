@@ -8,15 +8,6 @@ import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 
-const __dirname=path.resolve()
-console.log(__dirname);
-
-app.use(express.static(path.join(__dirname, '/client/dist')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'client', 'dist', 'index.html'));
-});
-
 dotenv.config()//user.model';
 
 const app=express();
@@ -43,6 +34,16 @@ app.listen(2000,()=>{
 app.use("/api/user",userRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/listing', listingRouter);
+
+const __dirname=path.resolve()
+console.log(__dirname);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname,'client', 'dist', 'index.html'));
+});
+
 
 
 app.use((err,req,res,next)=>{
